@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "email-env-assistant"
+version = "1.0.0"
+description = "A reinforcement learning environment for training AI agents to classify and reply to emails"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+  {name = "sanproster"}
+]
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "pydantic",
+  "openenv-core",
+  "requests",
+]
+
+[project.urls]
+Homepage = "https://huggingface.co/spaces/sanproster/email-env-assistant"
+
+[tool.setuptools.packages.find]
+where = ["."]
