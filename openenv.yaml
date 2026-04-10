@@ -1,0 +1,34 @@
+name: email-env-assistant
+description: A reinforcement learning environment for training AI agents to classify and reply to emails
+version: 1.0.0
+author: sanproster
+
+environment:
+  type: http
+  base_url: https://sanproster-email-env-assistant.hf.space
+
+endpoints:
+  reset:
+    method: POST
+    path: /reset
+  step:
+    method: POST
+    path: /step
+  state:
+    method: GET
+    path: /state
+
+actions:
+  - name: classify
+    description: Classify the email as spam, work, or personal
+  - name: reply
+    description: Generate a reply to the email
+
+observation:
+  - email_text
+  - expected_label
+  - agent_output
+
+reward:
+  min: 0.0
+  max: 1.0
