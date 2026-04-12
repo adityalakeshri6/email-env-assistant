@@ -1,6 +1,7 @@
 from fastapi import FastAPI
+from models import Action, Observation, Reward
 from env import EmailAssistantEnv
-from models import Action
+import uvicorn
 
 app = FastAPI()
 env = EmailAssistantEnv()
@@ -26,3 +27,9 @@ def step(action: Action):
 @app.get("/state")
 def state():
     return env.state()
+
+def main():
+    uvicorn.run(app, host="0.0.0.0", port=7860)
+
+if __name__ == "__main__":
+    main()
